@@ -1,0 +1,40 @@
+#gonderilen bir kelimeyi belirtilen kez ekrana yazan kod
+def ekranayazanfonk(kelime,sayi):
+    for i in range (0,sayi):
+        print(kelime)
+
+ekranayazanfonk("dogukan",5)
+
+
+#kendisine gonderilen sınırsız sayidaki parametreyi listeye ceviren fonksiyon
+def turnToList(*params):
+    liste = []
+    for param in params:
+        liste.append(param)
+    
+    return liste
+result=turnToList(10,20,30,"merhaba")
+print(result)
+#gonderilen 2 sayı arasındaki tum asal sayıları bulun
+def AsalBulan(sayi1,sayi2):
+    for num in range(sayi1,sayi2+1):
+        if sayi>1:
+            for i in range(2,num):
+                if(num%i==0):
+                    break
+            else:
+             print(num)
+
+sayi=int(input("lutfen 1.sayiyi giriniz:"))
+ssayi=int(input("lutfen 2.sayiyi giriniz"))
+AsalBulan(sayi,ssayi)
+
+#kendisine gonderilen sayinin tam bolenlerini liste seklinde geri donduren fonk
+def tam_bolenleri_bul(sayi):
+    tambolenler=[]
+    for i in range (2,sayi):
+        if(sayi%i==0):
+            tambolenler.append(i)
+
+    return tambolenler
+print(tam_bolenleri_bul(20))
