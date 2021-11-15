@@ -1,0 +1,27 @@
+#calculator
+
+myaccount={
+"name":"dogukan",
+"balance":1000,
+"numofaccount":"120",
+}
+choice=0
+
+while choice != 4:   
+    print("1-withdraw money\n2-deposit money\n3-balance information\n4-quit")
+    choice=int(input("please enter your choice's number"))
+    
+    if(choice==1):
+     print("how much money do you want to invest")
+     myaccount["balance"]+=int(input())
+     exit
+    if(choice==2):
+        print("how much money do you want to withdraw")
+        request=int(input())
+        if(request>myaccount["balance"]):
+         print("there is not that much money in your account")  
+        else:
+            myaccount["balance"]-=request
+            print("your request done")
+    if(choice==3):
+     print("your balance is ",format(myaccount["balance"])," dollar")
