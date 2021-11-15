@@ -1,0 +1,74 @@
+
+# Question
+class Question:
+  def __init__(self,text,choices,answer):
+    self.text=text
+    self.choices=choices
+    self.answer=answer
+  def CheckAnswer(self,answer):
+    return self.answer==answer
+
+
+q1 = Question("en iyi programlama dili hangisidir.",['C#','python','javascript','java'],"python")
+q2 = Question("en populer programlama dili hangisidir.",['C#','python','javascript','java'],"python")
+q3 = Question("en cok kazandiran programlama dili hangisidir.",['C#','python','javascript','java'],"python")
+questions = [q1,q2,q3]
+ 
+print(q1.CheckAnswer('python'))
+print(q2.CheckAnswer('C#'))
+# Quiz
+class quiz:
+  
+  
+  def __init__(self,questions):
+   self.questions=questions
+   self.score=0
+   self.questionIndex = 0
+  
+  
+  def getquestion(self):
+    return self.questions[self.questionIndex] 
+ 
+ 
+  def displayQuestion(self):
+    question=self.getquestion()
+    print(f"soru {self.questionIndex + 1} : {question.text}")
+    for q in question.choices:
+      print("-"+q)
+    answer = input("cevabi giriniz:")
+    self.guess(answer)
+    self.loadQuestion()
+  
+  
+  def guess(self,answer):
+    question = self.getquestion()
+    if question.CheckAnswer(answer):
+      self.score+=1
+      self.questionIndex+=1
+    else:
+      self.questionIndex+=1
+  
+  
+  def loadQuestion(self):
+    if(len(self.questions)==self.questionIndex):
+      self.showScore()
+    else:
+       self.displayProgress()
+       self.displayQuestion()
+  
+ 
+  def showScore(self):
+    print(  "score ", self.score )
+  
+  
+  def displayProgress(self):
+    totalQuestion = len(self.questions)
+    questionNumber = self.questionIndex + 1
+    if(questionNumber>totalQuestion):
+      print("quiz bitti")
+    else:
+      print( f"question : {questionNumber} of {totalQuestion}".center(100,"*"))
+
+
+quiz1=quiz(questions)
+quiz1.loadQuestion()
