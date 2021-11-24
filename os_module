@@ -1,0 +1,40 @@
+import os
+import datetime
+
+#dizin degistirme
+#os.chdir('C:\\')
+#os.chdir('..\..')
+
+#klasor olusturma
+#os.mkdir("newdirectory")
+#os.mkdirs("newdirectory","yeniklasor")
+#os.rename("newdirectory","yeniklasor")
+#os.rmdir("newdirectory")
+#os.rmdirs
+
+#etkin dizin ogrenme
+#result = os.getcwd()
+
+#listeleme
+#result = os.listdir()
+#result = os.listdir('C:\\')
+
+#
+result = os.stat("hello.py")
+#result = datetime.datetime.fromtimestamp(result.st_ctime)  olusturulma Tarihi
+#result = datetime.datetime.fromtimestamp(result.st_atime)  Son erisilme tarihi
+#result = datetime.datetime.fromtimestamp(result.st_mtime)  degistirilme tarihi
+
+#os.system("notepad.exe")
+
+
+# path
+#result = os.path.abspath("main.py")
+#result = os.path.dirname("C:/Users/Doğukan/Desktop/Projects/python/hello.py")
+#result = os.path.exists("C:/Users/Doğukan/Desktop/Projects/python/hello.p")
+#result = os.path.isdir("C:/Users/Doğukan/Desktop/Projects/python/main.py")
+# os.path.isfile
+#result = os.path.join("C:\\","deneme","denem1")
+#result = os.path.split("C:\\deneme")
+#result=os.path.splitext("hello.py")
+#print(result)
