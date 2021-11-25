@@ -1,0 +1,39 @@
+
+import re
+
+#result = dir(re)
+
+#re module
+str="python kursu: python programlama rehberiniz | 40 saat"
+
+#re.findall
+#result=re.findall("python",str)
+
+#re.split(
+#result = re.split(" ",str)
+
+#re.sub()
+#result=re.sub(" ","-",str)
+
+#re.search(
+#result = re.search("python",str)
+#result = result.span()
+#result = result.end()
+#result = result.start()
+#result = result.group()
+#result = result.string
+
+#reguler expression
+
+#searching a character
+#result= re.findall("[abc]",str)
+#result = re.findall("[^0-9]",str)
+
+
+
+#result = re.findall("...",str)
+#result = re.findall("py..on",str)
+
+result = re.findall("^p",str)
+
+print(result) mofu
