@@ -1,0 +1,27 @@
+from numpy import number
+import pandas as pd
+
+df = pd.read_csv("imdbTop250.csv")
+
+result = df
+result = df.columns
+result = df.info
+
+result = df.head()
+result = df.tail()
+
+result = df[["Title","Rating"]].tail(7)
+
+result = df[5:][["Title","Rating"]]
+result = df[df["Rating"]>=8.0][["Title","Rating"]].head()
+
+result = df[(df["Date"]>=2014)&(df["Date"]<2015)][["Title","Date"]]
+
+result = df[((df["Rating"]>=8) & (df["Rating"]<=9)) | (df["Votes"]>100000)][["Title","Votes","Rating"]]
+
+print(result)
+
+
+
+
+
