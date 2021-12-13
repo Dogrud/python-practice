@@ -1,0 +1,61 @@
+import mysql.connector
+
+def insertproduct(Name, Price , imageUrl,Description):  
+    connection = mysql.connector.connect(host = "localhost", user = "root",password = "147914",database="node-app")
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO Products(Name,Price,imageUrl,Description) VALUES (%s,%s,%s,%s)"
+    values = (Name, Price,imageUrl,Description)
+
+    cursor.execute(sql,values)
+
+    try:
+     connection.commit()
+     print(f"{cursor.rowcount} tane kayit eklendi")
+     print(f"son eklenen kaydin id no su {cursor.lastrowid}")
+    except mysql.connector.Error as err:
+        print("hata",err)   
+    finally:
+        connection.close()
+        print("database kapandı")
+
+
+def insertproducts(list):  
+    connection = mysql.connector.connect(host = "localhost", user = "root",password = "147914",database="node-app")
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO Products(Name,Price,imageUrl,Description) VALUES (%s,%s,%s,%s)"
+    values = list
+
+    cursor.executemany(sql,values)
+
+    try:
+     connection.commit()
+     print(f"{cursor.rowcount} tane kayit eklendi")
+     print(f"son eklenen kaydin id no su {cursor.lastrowid}")
+    except mysql.connector.Error as err:
+        print("hata",err)   
+    finally:
+        connection.close()
+        print("database kapandı")
+
+
+liste = []
+while True:
+    name  = input("urun adini giriniz")
+    price = input("urun fiyati giriniz")
+    imageurl  = input("urun resim adi giriniz")
+    description  = input("urun aciklamasi giriniz")
+
+    liste.append((name,price,imageurl,description))
+    
+    result = input("devam etmek istiyor musunuz(e-h)")
+    if result == "h":
+        print("kayitlariniz veritabanina aktariliyor.")
+        print(liste)
+        insertproducts(liste)
+        break
+
+
+
+#insertproduct(name,price,imageurl,description)
